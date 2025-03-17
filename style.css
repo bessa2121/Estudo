@@ -164,6 +164,10 @@ a{
 
 /* Conteúdo principal */
 main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria 4 colunas de tamanho igual */
+    grid-template-rows: repeat(4, auto);  /* Cria 2 linhas de altura automática */
+    gap: 20px; /* Espaçamento entre as colunas e linhas */
     width: 80%;
     background-color: #101010;
     color: white;
@@ -201,9 +205,6 @@ section {
     border-radius: 10px;
 }
 
-.formacoes{
-    text-align: left;
-}
 
 /* Rodapé */
 footer {
