@@ -191,9 +191,8 @@ figure{
 }
 
 img{
-    width: 300px;
-    height: 400px;
-    border-radius: 20px;
+    width: 500px;
+    height: 300px;
 }
 
 /* Seções */
@@ -205,7 +204,52 @@ section {
     border-radius: 10px;
 }
 
+.Portfolio {
+    position: relative;
+    text-decoration: none; 
+    color: white; 
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden; 
+}
 
+/* Criando o efeito de underline animado */
+.Portfolio::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -2px; /* Ajuste a posição do underline */
+    width: 100%;
+    height: 2px; /* Espessura do underline */
+    background: rgb(255, 255, 255); /* Cor inicial do underline */
+    transform: scaleX(1);
+    transform-origin: left;
+    animation: underlineAnimation 3s infinite ease-in-out ;
+}
+
+/* Definição da animação do underline */
+@keyframes underlineAnimation {
+    0% {
+        transform: scaleX(1);
+        transform-origin: right;
+        background: rgb(255, 255, 255); /* Cor inicial */
+    }
+    50%{
+        transform: scaleX(0);
+        transform-origin: right;
+        background: #ffc874; /* Cor final */;
+    }
+    75%{
+        transform: scaleX(0);
+        transform-origin: left;
+        background:#ffc874;
+    }
+    100%{
+        transform: scaleX(1);
+        transform-origin: left;
+        background: rgb(255, 255, 255);
+    }
+}
 /* Rodapé */
 footer {
     background-color: black;
