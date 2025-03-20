@@ -17,11 +17,11 @@ body {
     background: linear-gradient(to bottom, #0F0C1F, #0c0729, #291435, #4f3161, #1b4b4b );
 }
 
-
 /* Barra de pesquisa */
-input{
+input {
     font-family: "Roboto", sans-serif;
-    width: 200px;
+    width: 80%; /* Ajuste responsivo */
+    max-width: 400px; /* Tamanho máximo */
     height: 25px;
     font-size: 15px;
 }
@@ -34,6 +34,7 @@ header {
     color: white;
     width: 100%;
     padding: 20px 0 60px 0;
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
 }
 
 /* Navegação dentro do header */
@@ -41,19 +42,20 @@ header {
     display: flex;
     align-items: center;
     position: absolute;
-    left: 50%; /* Mantém centralizado */
-    top: 50px; /* Ajuste conforme necessário */
+    left: 50%;
+    top: 50px;
     transform: translateX(-50%);
     border: 1px solid #ccc;
     background-color: #00000006;
-    width: 400px;
+    width: 80%; /* Ajuste para largura responsiva */
+    max-width: 600px; /* Tamanho máximo */
     margin: 20px auto;
     border-radius: 20px;
     padding: 5px 10px;
     color: #fff;
 }
 
-#search{
+#search {
     padding: 8px;
     border: none;
     background-color: transparent;
@@ -62,7 +64,7 @@ header {
     color: #fff;
 }
 
-.search label{
+.search label {
     height: 25px;
 }
 
@@ -79,6 +81,7 @@ aside {
     top: 0;
     transition: left 0.5s ease;
     padding: 20px;
+    z-index: 1000; /* Garante que o menu fique sobre outros elementos */
 }
 
 /* Classe para mostrar o menu */
@@ -125,7 +128,6 @@ aside nav ol li a {
     border-radius: 5px;
     color: black;
     text-align: center;
-    overflow: hidden;
     transition: color 1.0s ease-in-out;
     margin-top: 20px;
 }
@@ -140,9 +142,8 @@ aside nav ol li a::before {
     height: 100%;
     background-color: #000000;
     transform: scale(0);
-    overflow: hidden;
     transform-origin: top left; /* O efeito começa no canto inferior direito */
-    transition: transform 0.5s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
 
 /* Quando passa o mouse, a cor sobe na diagonal */
@@ -162,8 +163,7 @@ aside nav ol li a:hover span {
     color: white;
 }
 
-
-a{
+a {
     text-decoration: none;
     color: white;
 }
@@ -171,8 +171,8 @@ a{
 /* Conteúdo principal */
 main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Cria 4 colunas de tamanho igual */
-    grid-template-rows: repeat(4, auto);  /* Cria 2 linhas de altura automática */
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Ajuste responsivo */
+    grid-template-rows: auto;  /* Define que as linhas terão altura automática */
     gap: 20px; /* Espaçamento entre as colunas e linhas */
     width: 80%;
     background-color: #101010;
@@ -193,13 +193,14 @@ article {
     margin-top: 20px;
 }
 
-figure{
+figure {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-img{
-    width: 500px;
-    height: 300px;
+img {
+    width: 40%;
+    height: 40%;
+    filter: drop-shadow(8px 5px 4px #000000);
 }
 
 /* Seções */
@@ -227,7 +228,7 @@ section {
     animation: spreadGradient 12s infinite linear;
 }
 
-.Portfolio:hover{
+.Portfolio:hover {
     position: relative;
     display: inline-block;
     animation: tada 1s ease-in-out;
@@ -239,7 +240,7 @@ section {
     30%, 50%, 70%, 90% { transform: scale(1) rotate(5deg); }
     40%, 60%, 80% { transform: scale(1) rotate(-5deg); }
     100% { transform: scale(1); }
-  }
+}
 
 /* Rodapé */
 footer {
@@ -253,31 +254,32 @@ footer {
 }
 
 ul {
-    padding: 0;        /* Remove o padding da lista */
-    display: flex;     /* Exibe os itens da lista em linha */
-    justify-content: center; /* Alinha os itens no centro horizontal */
-    gap: 20px;         /* Espaçamento entre os links */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
 }
 
 ul li {
-    display: inline-block;  /* Os itens da lista serão exibidos horizontalmente */
+    display: inline-block;
 }
 
 ul li a {
-    color: black;            /* Cor do texto do link */
-    font-size: larger;         /* Tamanho da fonte */
-    padding: 10px 20px;      /* Espaçamento dentro do link */
-    border-radius: 5px;      /* Borda arredondada */
+    color: black;
+    font-size: larger;
+    padding: 10px 20px;
+    border-radius: 5px;
     color: #101010;
     background-color: #f0f0f0;
 }
 
 ul li a:hover {
-    background-color: #000000;  /* Cor de fundo ao passar o mouse sobre o link */
+    background-color: #000000;
     color: white;
 }
 
-h4{
+h4 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-top: 15px;
 }
@@ -311,3 +313,61 @@ h4{
         background-position: 0% 0%;
     }
 }
+
+
+@media (max-width: 768px) {
+    .menu-button {
+        top: 15px;
+        left: 20px;
+    }
+
+    aside {
+        width: 100%; /* Largura total em telas pequenas */
+        left: -100%; /* Menu começa escondido */
+    }
+
+    .show-menu {
+        left: 0;
+    }
+}
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Coloca as colunas em uma única linha */
+    }
+
+    .search {
+        width: 90%; /* Ajusta a largura da barra de pesquisa */
+    }
+
+    .menu-button {
+        top: 10px;
+        left: 15px;
+    }
+
+    aside {
+        width: 80%;
+        left: -100%; /* Menu começa escondido */
+    }
+
+    .show-menu {
+        left: 0;
+    }
+
+
+/* Para telas muito pequenas, como celulares */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .search {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    footer ul {
+        flex-direction: column;
+    }
+}
+    }
