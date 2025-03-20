@@ -10,12 +10,11 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #ffc874;
-    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background: linear-gradient(to bottom, #0F0C1F, #0c0729, #291435, #4f3161, #1b4b4b );
 }
 
 
@@ -29,7 +28,9 @@ input{
 
 /* Cabeçalho */
 header {
-    background-color: #101010;
+    background: linear-gradient(135deg , #000000, #1b1b1b, #363636 );
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
     color: white;
     width: 100%;
     padding: 20px 0 60px 0;
@@ -69,7 +70,9 @@ header {
 aside {
     width: 250px;
     height: 100vh;
-    background-color: #3e342b;
+    background: linear-gradient(135deg , #0F0C1F, #0c0729, #291435, #4f3161);
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
     color: white;
     position: fixed;
     left: -300px; /* Começa escondido */
@@ -88,13 +91,15 @@ aside {
     position: fixed;
     top: 35px;
     left: 30px;
-    background-color: #3e342b;
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 15px
+    font-size: 15px;
+    background: linear-gradient(135deg , #0F0C1F, #0c0729, #291435, #4f3161);
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
 }
 
 /* Botão de fechar */
@@ -116,11 +121,11 @@ aside nav ol li a {
     display: block;
     text-decoration: none;
     padding: 10px;
-    background: #6b5a4b;
+    background: #fff;
     border-radius: 5px;
-    overflow: hidden;
     color: black;
     text-align: center;
+    overflow: hidden;
     transition: color 1.0s ease-in-out;
     margin-top: 20px;
 }
@@ -133,8 +138,9 @@ aside nav ol li a::before {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffc874;
+    background-color: #000000;
     transform: scale(0);
+    overflow: hidden;
     transform-origin: top left; /* O efeito começa no canto inferior direito */
     transition: transform 0.5s ease-in-out;
 }
@@ -148,12 +154,12 @@ aside nav ol li a:hover::before {
 /* Mantendo o texto visível */
 aside nav ol li a span {
     position: relative;
-    color: white;
+    color: black;
 }
 
 /* Mudança na cor do texto ao passar o mouse */
 aside nav ol li a:hover span {
-    color: black;
+    color: white;
 }
 
 
@@ -174,6 +180,7 @@ main {
     padding: 20px;
     margin: 60px 0 40px 0;
     border-radius: 10px;
+    box-shadow: #fff 0 -5px 20px;
 }
 
 /* Artigo */
@@ -198,61 +205,47 @@ img{
 /* Seções */
 section {
     background-color: #3e342b;
-    color: white;
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
+    box-shadow: #fff 0 0 5px;
+    background: linear-gradient(135deg , #1b1b1b, #363636 , #504f4f, #6e6d6d);
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
 }
 
 .Portfolio {
     position: relative;
     text-decoration: none; 
     color: white; 
-    padding: 0;
+    padding: 0 10px;
     border-radius: 5px;
     overflow: hidden; 
+    text-decoration: underline;
+    background: linear-gradient(135deg, #0c0729,#4f3161, #291435 ,#7d5296 );
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
 }
 
-/* Criando o efeito de underline animado */
-.Portfolio::after {
-    content: "";
-    position: absolute;
-    left: 0px;
-    bottom: -2px; /* Ajuste a posição do underline */
-    width: 100%;
-    height: 2px; /* Espessura do underline */
-    background: rgb(255, 255, 255); /* Cor inicial do underline */
-    transform: scaleX(1);
-    transform-origin: left;
-    animation: underlineAnimation 3s infinite ease-in-out ;
+.Portfolio:hover{
+    position: relative;
+    display: inline-block;
+    animation: tada 1s ease-in-out;
 }
 
-/* Definição da animação do underline */
-@keyframes underlineAnimation {
-    0% {
-        transform: scaleX(1);
-        transform-origin: right;
-        background: rgb(255, 255, 255); /* Cor inicial */
-    }
-    50%{
-        transform: scaleX(0);
-        transform-origin: right;
-        background: #ffc874; /* Cor final */;
-    }
-    75%{
-        transform: scaleX(0);
-        transform-origin: left;
-        background:#ffc874;
-    }
-    100%{
-        transform: scaleX(1);
-        transform-origin: left;
-        background: rgb(255, 255, 255);
-    }
-}
+@keyframes tada {
+    0% { transform: scale(1); }
+    10%, 20% { transform: scale(1) rotate(-5deg); }
+    30%, 50%, 70%, 90% { transform: scale(1) rotate(5deg); }
+    40%, 60%, 80% { transform: scale(1) rotate(-5deg); }
+    100% { transform: scale(1); }
+  }
+
 /* Rodapé */
 footer {
-    background-color: black;
+    background: linear-gradient(135deg , #000000, #1b1b1b, #363636 );
+    background-size: 300% 300%;
+    animation: spreadGradient 12s infinite linear;
     color: white;
     width: 100%;
     padding: 10px;
@@ -289,3 +282,32 @@ h4{
     padding-top: 15px;
 }
 
+@keyframes spreadGradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    12.5% {
+        background-position: 25% 0%;
+    }
+    25% {
+        background-position: 50% 25%;
+    }
+    38% {
+        background-position: 75% 50%;
+    }
+    50% {
+        background-position: 100% 75%;
+    }
+    62% {
+        background-position: 75% 100%;
+    }
+    75% {
+        background-position: 50% 75%;
+    }
+    87% {
+        background-position: 25% 50%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
